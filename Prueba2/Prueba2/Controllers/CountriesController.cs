@@ -20,6 +20,8 @@ namespace Prueba2.Controllers
         }
 
         // GET: Countries
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
               return _context.Country != null ? 
@@ -28,6 +30,7 @@ namespace Prueba2.Controllers
         }
 
         // GET: Countries/Details/5
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Country == null)
@@ -46,6 +49,8 @@ namespace Prueba2.Controllers
         }
 
         // GET: Countries/Create
+
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -56,7 +61,7 @@ namespace Prueba2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Country country)
+        public async Task<IActionResult> Create(Country country)
         {
             if (ModelState.IsValid)
             {
